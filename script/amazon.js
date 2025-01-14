@@ -33,7 +33,7 @@
   priceCents:1899
 }]*/ //Now the products are used from product.js
 
-
+import {cart} from '../data/cart.js';
 
 let productHTML = ''
 
@@ -114,9 +114,16 @@ if(matchingItem){
   
   });
 }
-
  
 
-console.log(cart);
+ let cartQuantity =0;
+ cart.forEach((item)=>{
+ cartQuantity = cartQuantity+item.quantity;
+ })
+
+
+
+document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
+
 });
 });
