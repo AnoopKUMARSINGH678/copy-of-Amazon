@@ -19,7 +19,8 @@ import {products} from '../data/products.js';
 
 
    cartSummaryHTML += // we removed this code from checkout.html and genrated though javascript
-   ` <div class="cart-item-container"> 
+   ` <div class="cart-item-container 
+   js-cart-item-container-${matchingProduct.id}"> 
     <div class="delivery-date">
       Delivery date: Tuesday, June 21
     </div>
@@ -103,5 +104,8 @@ document.querySelectorAll('.js-delete-link').forEach((link)=>{
  link.addEventListener('click',()=>{
   const productId = link.dataset.productId;
   removeFromCart(productId);
+
+  const container = document.querySelector(`.js-cart-item-container-${productId}`)
+  container.remove();
  })
 })
